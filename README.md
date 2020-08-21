@@ -36,6 +36,13 @@
 | ------------- |
 | <img src="https://i.imgur.com/jPLpIlR.png">  |
 
+
+## 📋 Requirements
+
+```
+PHP 7.2
+```
+
 ## 🚀 Install
 
 ```

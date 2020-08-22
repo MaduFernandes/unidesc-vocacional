@@ -13,8 +13,7 @@ class Candidato extends Model
     Use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-    protected $fillable = ['nome', 'telefone', 'email', 'cidade_id', 'escolaridade_id', 'resultado_id',
-                           'visitor', 'universidade_id'];
+    protected $fillable = ['nome', 'telefone', 'email', 'cidade_id', 'escolaridade_id', 'resultado_id','visitor', 'universidade_id'];
 
     public function cidade()
     {
@@ -26,7 +25,7 @@ class Candidato extends Model
         return $this->hasOne(ResultadoCand::class, 'id');
     }
 
-    public function unisersidade()
+    public function universidade()
     {
         return $this->hasOne(Universidade::class, 'id', 'universidade_id');
     }

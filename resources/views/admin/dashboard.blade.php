@@ -103,7 +103,7 @@
                         <th>GP C</th>
                         <th>GP D</th>
                         <th>GP E</th>
-                        <th>Unisersidade</th>
+                        <th>Universidade</th>
                         <th>Data</th>
                     </tr>
                     </thead>
@@ -118,7 +118,7 @@
                             <td>{{$dat->resultado->GPC}}</td>
                             <td>{{$dat->resultado->GPD}}</td>
                             <td>{{$dat->resultado->GPE}}</td>
-                            <td>{{$dat->unisersidade->nm_universidade}}</td>
+                            <td>{{$dat->universidade->nm_universidade}}</td>
                             <td>{{$dat->created_at->format('d-m-Y')}}</td>
                         </tr>
                     @endforeach

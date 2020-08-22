@@ -28,6 +28,10 @@
                         <a class="nav-link" href="#" id="bt_grafico"><b><i class="fas fa-chart-line"></i>
                                 Gráfico</b></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('universidades')}}" id="bt_grafico"><b><i class="fas fa-university"></i>
+                                Universidades</b></a>
+                    </li>
                 </ul>
                 <div class="form-inline ml-auto" data-background-color>
                     <div class="form-group has-white">
@@ -42,12 +46,12 @@
                                     <span class="text-dark"> Meu Perfil <i class="fas fa-user-alt"></i></span>
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+                                    onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                                     <span class="text-dark">Sair <i class="fas fa-door-open"></i></span>
                                 </a>
 
                                 <form id="frm-logout" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
+                                    style="display: none;">
                                     @csrf
                                 </form>
                             </div>

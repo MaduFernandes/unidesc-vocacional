@@ -36,6 +36,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/profile', 'UserAdmController@index')->name('admin.profile');
     Route::post('/profile/update', 'UserAdmController@update')->name('admin.profileUpdate');
     Route::post('/resultados', 'DashboardAdmController@showResults')->name('admin.resultados');
+
+    Route::get('/dashboard/universidades', 'UniversidadesController@index')->name('universidades');
+    Route::post('/dashboard/universidades', 'UniversidadesController@store')->name('admin.universidades');
+
 });
 
 

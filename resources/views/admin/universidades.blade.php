@@ -84,8 +84,27 @@
                 </div>
             </div>
         </form>
+    </div>
 
-
+    <div class="ml-5 mr-5 ">
+        <form action="" method="GET">
+            @csrf
+            <div class="card">
+                <div class="card-body">
+                    @foreach ($universidades as $universidade)
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                <td>{{$universidade->nm_universidade}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @endforeach
+                </div>
+            </div>
+        </form> 
+    </div>
+    
     @include('components.footer_simple')
 @endsection
 

@@ -16,7 +16,8 @@ class UniversidadesController extends Controller
      */
     public function index()
     {
-        return view('admin.universidades');
+        $universidades = Universidade::all();
+        return view('admin.universidades', compact('universidades'));
     }
 
     /**
@@ -37,9 +38,9 @@ class UniversidadesController extends Controller
      */
     public function store(Request $request)
     {
-        $universidade = new Universidade;
-        $universidade->nm_universidade = $request->nm_universidade;
-        $universidade->save();
+        $universidades = new Universidade;
+        $universidades->nm_universidade = $request->nm_universidade;
+        $universidades->save();
 
         return redirect()->route('admin.universidades');
     }

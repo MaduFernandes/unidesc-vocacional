@@ -74,7 +74,7 @@
                         <div class="row justify-content-center align-content-center">
                             <div class="col-4">
                                 <h5>Nova Universidade</h5>
-                                <input class="form-control" type="text" name="nm_universidade" id="nm_universidade">
+                                <input class="form-control" type="text" name="nm_universidade" id="nm_universidade" required>
                             </div>
                             <div class="col-1">
                                 <button type="submit" class="btn btn-round btn-success mt-4"><b>Salvar!</b></button>
@@ -87,7 +87,7 @@
     </div>
 
 
-<div class="container">
+<div class="ml-5 mr-5">
     {{ $universidades->links() }}
     <div class="card">
         <div class="table table-hover" id="table">
@@ -105,20 +105,20 @@
                         <tr>
                             <td>{{$universidade->id}}</td>
                             <td>{{$universidade->nm_universidade}}</td>
-                            <td><a href="#" class="btn btn-info">Editar</a></td>
+                            <td><a href="" class="btn btn-info" style="font-weight: bold">EDITAR</a></td>
 
                             <td>
                                 <form method="POST" action="{{ route('universidades.destroy', $universidade->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
-                                    Excluir
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="font-weight: bold">
+                                    EXCLUIR
                                 </button>
                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"  aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Deseja excluir uma universidade ?</h5>
+                                                <h5 class="modal-title">Deseja excluir uma universidade ?</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span></button>
                                             </div>

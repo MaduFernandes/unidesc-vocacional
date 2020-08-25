@@ -117,7 +117,7 @@
                             <blockquote class="blockquote blockquote-primary mb-0">
                                 <p class="font-italic font-weight-normal ft-15">
                                     “Um programador web não precisa ficar confinado em um escritório,
-                                    defronte a um computador 24 horas por dia. Além de trabalhar em grandes corporações,
+                                    de frente a um computador 24 horas por dia. Além de trabalhar em grandes corporações,
                                     um profissional desta área também tem seu espaço no meio acadêmico, para realizar
                                     pesquisas e desenvolver aplicações em prol da comunidade...”</p>
                                 <footer class="blockquote-footer">Perfil mais <cite title="Source Title">Tecnico</cite>

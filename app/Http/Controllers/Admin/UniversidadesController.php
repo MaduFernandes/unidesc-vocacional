@@ -9,14 +9,11 @@ use App\Models\Universidade\Universidade;
 
 class UniversidadesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $page = 5;
+
     public function index()
     {
-        $universidades = Universidade::all();
+        $universidades = Universidade::paginate($this->page);
         return view('admin.universidades', compact('universidades'));
     }
 
@@ -87,6 +84,7 @@ class UniversidadesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Universidade::find($id)->delete();
+        return redirect()->route('admin.universidades');
     }
 }

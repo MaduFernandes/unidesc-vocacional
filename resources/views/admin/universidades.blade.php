@@ -86,25 +86,60 @@
         </form>
     </div>
 
-    <div class="ml-5 mr-5 ">
-        <form action="" method="GET">
-            @csrf
-            <div class="card">
-                <div class="card-body">
-                    @foreach ($universidades as $universidade)
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                <td>{{$universidade->nm_universidade}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+<div class="container">
+    {{ $universidades->links() }}
+    <div class="card">
+        <div class="table table-hover" id="table">
+            <table class="table">
+                <thead class="thead">
+                    <tr>
+                        <th scope="col" id="col">ID</th>
+                        <th scope="col" id="col">Universidade</th>
+                        <th scope="col" id="col"></th>
+                        <th scope="col" id="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($universidades as $universidade)
+                        <tr>
+                            <td>{{$universidade->id}}</td>
+                            <td>{{$universidade->nm_universidade}}</td>
+                            <td><a href="#" class="btn btn-info">Editar</a></td>
+
+                            <td>
+                                <form method="POST" action="{{ route('universidades.destroy', $universidade->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Excluir
+                                </button>
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"  aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Deseja excluir uma universidade ?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body" style="height: 100px;"></div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                    <button type="submit" class="btn btn-primary">Excluir</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
                         @endforeach
-                </div>
-            </div>
-        </form> 
+                </tbody>
+            </table>
+        </div>
     </div>
-    
+</div>
+
     @include('components.footer_simple')
 @endsection
 

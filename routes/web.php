@@ -38,7 +38,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::post('/resultados', 'DashboardAdmController@showResults')->name('admin.resultados');
 
     Route::get('/dashboard/universidades', 'UniversidadesController@index')->name('universidades');
-    Route::post('/dashboard/universidades', 'UniversidadesController@store')->name('admin.universidades');
+    Route::post('/dashboard/universidades', 'UniversidadesController@store')->name('admin.universidades');;
+    Route::delete('/dashboard/universidades/{id}', 'UniversidadesController@destroy')->name('universidades.destroy');;
 
 });
 

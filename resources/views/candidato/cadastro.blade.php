@@ -78,7 +78,7 @@
                         </div>
                         {{--ESCOLARIDADES--}}
                         <div class="form-group col-sm-12 col-md-3">
-                            <label for="escolaridade">Serie</label>
+                            <label for="escolaridade">Série</label>
                             <select class="form-control" id="escolaridade" name="escolaridade" required>
                                 <option value="">Selecione sua Série</option>
                                 <optgroup label="Ensino Fundamental">

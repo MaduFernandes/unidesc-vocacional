@@ -33,7 +33,7 @@ class UniversidadesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UniversidadeFormRequest $request)
     {
         $universidades = new Universidade;
         $universidades->nm_universidade = $request->nm_universidade;

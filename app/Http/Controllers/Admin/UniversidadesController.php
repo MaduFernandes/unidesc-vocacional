@@ -40,7 +40,7 @@ class UniversidadesController extends Controller
         $universidades->nm_universidade = $request->nm_universidade;
         $universidades->save();
 
-        return redirect('universidades');
+        return redirect()->route('universidades.index');
     }
 
     /**
@@ -85,7 +85,7 @@ class UniversidadesController extends Controller
      */
     public function destroy($id)
     {
-        Universidade::find($id)->delete();
-        return view('admin.universidades');
+        Universidade::where('id', $id)->delete();
+        return redirect()->route('universidades.index');
     }
 }

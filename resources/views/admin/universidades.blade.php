@@ -115,6 +115,8 @@
                             </td>
                             <td>
                                 <form method="POST" action="{{ route('universidades.destroy', $universidade->id) }}">
+                                    @csrf
+                                    @method('DELETE')
                                     <button class="btn btn-primary" type="submit" style="border-radius: 20px">
                                         <span>
                                             <i class="fas fa-trash"></i>

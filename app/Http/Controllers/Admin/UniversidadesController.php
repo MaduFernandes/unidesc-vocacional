@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Universidade\Universidade;
 use App\Http\Requests\UniversidadeFormRequest;
-use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 
 class UniversidadesController extends Controller
 {
@@ -26,7 +25,7 @@ class UniversidadesController extends Controller
      */
     public function create()
     {
-        return view('admin.universidades');
+
     }
 
     /**
@@ -41,7 +40,7 @@ class UniversidadesController extends Controller
         $universidades->nm_universidade = $request->nm_universidade;
         $universidades->save();
 
-        return redirect()->route('admin.universidades');
+        return redirect('universidades');
     }
 
     /**

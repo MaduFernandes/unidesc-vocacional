@@ -37,10 +37,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::post('/profile/update', 'UserAdmController@update')->name('admin.profileUpdate');
     Route::post('/resultados', 'DashboardAdmController@showResults')->name('admin.resultados');
 
-    Route::get('universidades', 'UniversidadesController@index')->name('universidades.index');
-    Route::post('universidades', 'UniversidadesController@store')->name('universidades.store');
-    Route::delete('universidades/{id}', 'UniversidadesController@destroy')->name('universidades.destroy');
-    Route::get('universidades', 'UniversidadesController@create')->name('universidades.create');
+    Route::post('/universidades', 'UniversidadesController@store')->name('universidades.store');
+    Route::get('/universidades', 'UniversidadesController@index')->name('universidades.index');
+    Route::delete('/universidades/{id}', 'UniversidadesController@destroy')->name('universidades.destroy');
 
 });
 

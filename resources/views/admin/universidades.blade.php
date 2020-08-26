@@ -29,7 +29,7 @@
                                 Gráfico</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('universidades')}}" id="bt_grafico"><b><i class="fas fa-university"></i>
+                        <a class="nav-link" href="{{ route('universidades.index')}}" id="bt_grafico"><b><i class="fas fa-university"></i>
                                 Universidades</b></a>
                     </li>
                 </ul>
@@ -66,7 +66,7 @@
         <div class="d-flex justify-content-center pt-0">
             <h3 class="title p-2 mb-2"><i class="fas fa-university"></i> Universidades</h3>
         </div>
-        <form action="{{ route('admin.universidades')}}" method="POST">
+        <form action="{{ route('universidades.store')}}" method="POST">
             @csrf
             <div class="d-flex justify-content-center pt-0">
                 <div class="card">
@@ -101,39 +101,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($universidades as $universidade)
+                    @foreach( $universidades as $universidade)
                         <tr>
                             <td>{{$universidade->id}}</td>
                             <td>{{$universidade->nm_universidade}}</td>
-                            <td><a href="" class="btn btn-info" style="font-weight: bold">EDITAR</a></td>
-
+                            <td>
+                                <a href="#" type="button" class="btn btn-info" style="border-radius: 20px">
+                                    <span>
+                                        <i class="fas fa-pencil-alt"></i>
+                                     </span>
+                                    EDITAR
+                                </a>
+                            </td>
                             <td>
                                 <form method="POST" action="{{ route('universidades.destroy', $universidade->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" style="font-weight: bold">
-                                    EXCLUIR
-                                </button>
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"  aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Deseja excluir uma universidade ?</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span></button>
-                                            </div>
-                                            <div class="modal-body" style="height: 100px;"></div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                    <button type="submit" class="btn btn-primary">Excluir</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <button class="btn btn-primary" type="submit" style="border-radius: 20px">
+                                        <span>
+                                            <i class="fas fa-trash"></i>
+                                        </span>
+                                        EXCLUIR
+                                    </button>
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                    @endforeach
                 </tbody>
             </table>
         </div>

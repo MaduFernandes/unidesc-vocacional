@@ -29,7 +29,7 @@
                                 Gráfico</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('universidades')}}" id="bt_grafico"><b><i class="fas fa-university"></i>
+                        <a class="nav-link" href="{{ route('universidades.index')}}" id="bt_grafico"><b><i class="fas fa-university"></i>
                                 Universidades</b></a>
                     </li>
                 </ul>

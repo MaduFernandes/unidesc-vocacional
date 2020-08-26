@@ -62,6 +62,7 @@
         </div>
     </nav>
 
+    {{--  FORMULÁRIO  --}}
     <div class="ml-5 mr-5 ">
         <div class="d-flex justify-content-center pt-0">
             <h3 class="title p-2 mb-2"><i class="fas fa-university"></i> Universidades</h3>
@@ -88,7 +89,10 @@
 
 
 <div class="ml-5 mr-5">
+    {{--  PAGINAÇÃO  --}}
     {{ $universidades->links() }}
+
+    {{--  TABELA DE UNIVERSIDADES  --}}
     <div class="card">
         <div class="table table-hover" id="table">
             <table class="table">
@@ -114,21 +118,47 @@
                                 </a>
                             </td>
                             <td>
-                                <form method="POST" action="{{ route('universidades.destroy', $universidade->id) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-primary" type="submit" style="border-radius: 20px">
-                                        <span>
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                        EXCLUIR
-                                    </button>
-                                </form>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#delete" style="border-radius: 20px">
+                                    <span>
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                    EXCLUIR
+                                </button>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
+            {{--  MODAL DE CONFIRMACAO  --}}
+            <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="font-weight-bold">Deseja excluir essa universidade ?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="alinhar-mid-teste">
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                                            class="font-weight-bold">Não</span></button>
+                                </div>
+                                <div class="m-1">
+                                    <form method="POST" action="{{ route('universidades.destroy', $universidade->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-success"><span
+                                                class="font-weight-bold">Sim</span></button>
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

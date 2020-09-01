@@ -110,12 +110,12 @@
                             <td>{{$universidade->id}}</td>
                             <td>{{$universidade->nm_universidade}}</td>
                             <td>
-                                <a href="#" type="button" class="btn btn-info" style="border-radius: 20px">
+                                <button class="btn btn-info" data-toggle="modal" data-target="#editar"  style="border-radius: 20px">
                                     <span>
                                         <i class="fas fa-pencil-alt"></i>
                                      </span>
                                     EDITAR
-                                </a>
+                                </button>
                             </td>
                             <td>
                                 <button class="btn btn-primary" data-toggle="modal" data-target="#delete" style="border-radius: 20px">
@@ -130,7 +130,40 @@
                 </tbody>
             </table>
 
-            {{--  MODAL DE CONFIRMACAO  --}}
+            <div class="modal fade" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="font-weight-bold">Deseja alterar essa universidade ?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="nm_universidade" value="{{ $universidade->nm_universidade }}">
+                            </div>
+                            <div class="alinhar-mid-teste">
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border-radius: 20px;"><span
+                                            class="font-weight-bold">Cancelar</span></button>
+                                </div>
+                                <div class="m-1">
+                                    <form method="POST" action="{{ route('universidades.update', $universidade->id) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-success" style="border-radius: 20px;"><span
+                                                class="font-weight-bold">Salvar</span></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                {{--  MODAL DE EXCLUSÃO --}}
             <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -143,24 +176,23 @@
                         <div class="modal-body">
                             <div class="alinhar-mid-teste">
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="border-radius: 20px;"><span
                                             class="font-weight-bold">Não</span></button>
                                 </div>
                                 <div class="m-1">
                                     <form method="POST" action="{{ route('universidades.destroy', $universidade->id) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-success"><span
+                                        <button type="submit" class="btn btn-success" style="border-radius: 20px;"><span
                                                 class="font-weight-bold">Sim</span></button>
                                     </form>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
 </div>
 
     @include('components.footer_simple')
